@@ -3,11 +3,13 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from '@mui/material/Badge';
+
 const Container = styled.div`
-  height: 50px;
+  height: 40px;
+  margin-bottom: 30px;
 `;
 const Wrapper = styled.div`
-  padding: 10px 20px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
