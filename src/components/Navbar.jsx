@@ -5,6 +5,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Badge from '@mui/material/Badge';
 import {mobile} from '../responsive'
 import { backdropClasses } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 40px;
@@ -66,6 +67,24 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    navigate('/Register')
+  }
+
+  const handleLoginClick = () => {
+    navigate('/Login')
+  }
+
+  const handleCartClick = () => {
+    navigate('/cart')
+  }
+
+  const hanldeLogoClick = () => {
+    navigate('/')
+  }
+  
   return (
     <Container>
       <Wrapper>
@@ -77,14 +96,14 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>LAMA.</Logo>
+          <Logo onClick={hanldeLogoClick}>LAMA.</Logo>
         </Center>
         <Right>
-          <MenuItem>Register</MenuItem>
-          <MenuItem>Sign In</MenuItem>
+          <MenuItem onClick={handleRegisterClick}>Register</MenuItem>
+          <MenuItem onClick={handleLoginClick}>Sign In</MenuItem>
           <MenuItem>
           <Badge badgeContent={4} color="primary">
-            <ShoppingCartOutlinedIcon />
+            <ShoppingCartOutlinedIcon onClick={handleCartClick}/>
           </Badge>
           </MenuItem>
         </Right>

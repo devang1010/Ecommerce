@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -45,12 +46,19 @@ const Button = styled.button`
 `;
 
 const CategoryItem = ({ item }) => {
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/productlist')
+  }
+
   return (
     <Container>
       <Image src={item.img} />
       <Info>
         <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
+        <Button onClick={handleClick}>SHOP NOW</Button>
       </Info>
     </Container>
   );

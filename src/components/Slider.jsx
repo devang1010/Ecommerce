@@ -4,6 +4,7 @@ import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import { sliderItems } from '../data';
 import { mobile } from '../responsive';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -88,6 +89,7 @@ const Button = styled.button`
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleClick = (direction) => {
     if(direction === "left"){
@@ -96,6 +98,10 @@ const Slider = () => {
       setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
     }
   };
+
+  const handleShowMoreClick = () => {
+    navigate('/productlist')
+  }
 
   return (
     <Container>
@@ -111,7 +117,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <Button onClick={handleShowMoreClick}>SHOW NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
